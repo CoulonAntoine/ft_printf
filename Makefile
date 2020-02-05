@@ -3,16 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
+#    By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/04 11:41:35 by ancoulon          #+#    #+#              #
-#    Updated: 2020/02/04 12:05:13 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/02/04 23:35:47 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libftprintf.a
 
 HEADER		= ft_printf.h
+
+LIBDIR		= ./libft
+
+LIB			= libft.a
 
 SRCS		= ft_printf.c
 
@@ -28,6 +32,10 @@ CFLAGS		= -Wall -Wextra -Werror
 
 .c.o:
 			${CC} ${CFLAGS} -c $^ -o $@
+
+$(LIB):
+			make -C ${LIBDIR}
+			make -C ${LIBDIR} clean
 
 $(NAME):	${OBJS}
 			${AR} ${NAME} ${OBJS}
