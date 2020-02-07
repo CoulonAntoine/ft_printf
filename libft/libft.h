@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 10:35:53 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/21 12:33:00 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/07 15:51:43 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,23 @@
 # define TRUE 1
 # define FALSE 0
 
-typedef unsigned char	t_uchar;
-typedef unsigned int	t_uint;
+# define BIT_0 (1 << 0)
+# define BIT_1 (1 << 1) 
+# define BIT_2 (1 << 2) 
+# define BIT_3 (1 << 3) 
+# define BIT_4 (1 << 4) 
+# define BIT_5 (1 << 5) 
+# define BIT_6 (1 << 6) 
+# define BIT_7 (1 << 7)
+
+typedef signed char		t_int8;
+typedef unsigned char	t_uint8;
+typedef signed short	t_int16;
+typedef unsigned short	t_uint16;
+typedef signed int		t_int32;
+typedef unsigned int	t_uint32;
+typedef signed long		t_int64;
+typedef unsigned long	t_uint64;
 
 typedef struct	s_list
 {

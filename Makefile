@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+         #
+#    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/04 11:41:35 by ancoulon          #+#    #+#              #
-#    Updated: 2020/02/04 23:35:47 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/02/07 15:05:25 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,8 +50,5 @@ fclean:		clean
 			${RM} ${NAME}
 
 re:			fclean all
-
-norm:		
-			${NORM} ${HEADER} ${SRCS}
 
 .PHONY:		all clean fclean re norm libft
