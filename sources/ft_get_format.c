@@ -1,32 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_get_format.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/04 11:54:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/07 15:42:04 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/02/04 13:02:27 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/02/10 15:45:09 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			ft_printf(const char *s, ...)
+t_uint64	ft_get_flags(t_format *fmt, char *s)
 {
-	va_list		va;
-	uint64_t	i;
-
-	va_start(va, s);
-	i = 0;
-	while (s[i])
+	if (s[0] == '0')
 	{
-		if (s[i] == '%')
-			i += ft_parse(s + i + 1, va);
-		else
-			ft_putchar_fd(s[i], 1);
-		i++;
+		fmt->flag += FLAG_FILL_0;
+		return (1);
 	}
-	va_end(va);
+	if (s[0] == '-')
+	{
+		fmt->flag += FLAG_LEFT;
+		return (1);
+	}
 	return (0);
+}
+
+t_uint64	ft_get_width(t_format *fmt, char *s)
+{
+	ft_atoi(s);
+}
+
+t_uint64	ft_get_precision(t_format *fmt, char *s)
+{
+	
+}
+
+t_uint64	ft_get_specifier(t_format *fmt, char *s)
+{
+	
 }

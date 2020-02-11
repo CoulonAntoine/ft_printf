@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 10:35:53 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/07 15:51:43 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/08 18:01:22 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
-# define TRUE 1
-# define FALSE 0
 
 # define BIT_0 (1 << 0)
 # define BIT_1 (1 << 1) 
@@ -36,6 +33,12 @@ typedef signed int		t_int32;
 typedef unsigned int	t_uint32;
 typedef signed long		t_int64;
 typedef unsigned long	t_uint64;
+
+typedef enum	e_bool
+{
+	FALSE = 0,
+	TRUE = !FALSE
+}				t_bool;
 
 typedef struct	s_list
 {
@@ -56,6 +59,7 @@ int				ft_isprint(int c);
 int				ft_isascii(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
+t_bool			ft_isset(char c, char *set);
 
 /*
 ** ************ MEMORY ****************************************************** **

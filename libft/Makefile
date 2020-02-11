@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 10:28:58 by ancoulon          #+#    #+#              #
-#    Updated: 2020/02/04 12:01:08 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/02/10 16:05:29 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c     \
 			  ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c          \
 			  ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c       \
 			  ft_lstmap.c ft_strndup.c ft_strlcat.c ft_strinc.c ft_isupper.c   \
-			  ft_islower.c ft_strcat.c
+			  ft_islower.c ft_strcat.c ft_isset.c
 
 OBJS		= ${SRCS:.c=.o}
 
@@ -46,7 +46,6 @@ all:		${NAME}
 
 clean:
 			${RM} ${OBJS}
-			${RM} ${OBJS_BONUS}
 
 fclean:		clean
 			${RM} ${NAME}
