@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/04 11:41:35 by ancoulon          #+#    #+#              #
-#    Updated: 2020/02/11 08:30:13 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/02/11 15:31:10 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCDIR		= ./includes
 
 SRCDIR		= ./sources
 
-SRCS		= 
+SRCS		= ft_parse_utils.c ft_parse.c ft_printf.c
 
 OBJS		= $(addprefix $(SRCDIR)/, $(SRCS:.c=.o))
 
@@ -28,7 +28,7 @@ CC			= gcc
 
 CFLAGS		= -Wall -Wextra -Werror
 
-AR			= ar rc
+AR			= ar rcs
 
 RM			= rm -f
 
@@ -37,18 +37,16 @@ MAKE		= make
 .c.o:
 			$(CC) $(CFLAGS) -I$(INCDIR) -c $^ -o $@
 
-all:		$(NAME)
-
-$(NAME):	$(LIB) $(OBJS)
-			$(AR) $(NAME) $(LIBDIR)/$(LIB) $(OBJS)
-
-$(LIB):
+$(NAME):	$(OBJS)
 			$(MAKE) -C $(LIBDIR)
+			$(AR) $(NAME) $(LIBDIR)/$(LIB) $(OBJS)
+			ranlib $(NAME)
+
+all:		$(NAME)
 
 clean:
 			$(MAKE) -C $(LIBDIR) clean
 			$(RM) $(OBJS)
-			$(RM) $(OBJS_BONUS)
 
 fclean:		clean
 			$(MAKE) -C $(LIBDIR) fclean

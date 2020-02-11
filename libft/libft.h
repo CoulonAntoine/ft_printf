@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 10:35:53 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/08 18:01:22 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/11 08:50:50 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define BIT_0 (1 << 0)
-# define BIT_1 (1 << 1) 
-# define BIT_2 (1 << 2) 
-# define BIT_3 (1 << 3) 
-# define BIT_4 (1 << 4) 
-# define BIT_5 (1 << 5) 
-# define BIT_6 (1 << 6) 
-# define BIT_7 (1 << 7)
+# define BIT_0 0x01
+# define BIT_1 0x02
+# define BIT_2 0x04
+# define BIT_3 0x08
+# define BIT_4 0x10
+# define BIT_5 0x20
+# define BIT_6 0x40
+# define BIT_7 0x80
 
 typedef signed char		t_int8;
 typedef unsigned char	t_uint8;

@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 10:28:58 by ancoulon          #+#    #+#              #
-#    Updated: 2020/02/10 16:05:29 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/02/11 14:23:06 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ CFLAGS		= -Wall -Wextra -Werror
 
 $(NAME):	${OBJS}
 			${AR} ${NAME} ${OBJS}
+			ranlib ${NAME}
 
 all:		${NAME}
 
