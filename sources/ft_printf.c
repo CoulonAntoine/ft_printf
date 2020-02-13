@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:54:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/13 11:47:22 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/13 15:40:14 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,23 @@
 int			ft_printf(const char *format, ...)
 {
 	va_list		va;
-	uint64_t	i;
+	t_uint64	i;
+	t_int32		ret;
 
 	va_start(va, format);
 	i = 0;
+	ret = 0;
 	while (format[i])
 	{
 		if (format[i] == '%')
-			i += ft_process(format + i + 1, &va);
+			i += ft_process(format + i + 1, &va, &ret);
 		else
+		{
 			ft_putchar_fd(format[i], 1);
+			ret++;
+		}
 		i++;
 	}
 	va_end(va);
-	return (0);
+	return ((int)ret);
 }

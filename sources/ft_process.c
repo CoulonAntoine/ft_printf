@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 11:47:34 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/13 12:35:35 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/13 15:45:34 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	(*g_specifiers[8])(t_format *, va_list *) = {
+void	(*g_specifiers[8])(t_format *, va_list *, t_int32 *) = {
 	&ft_print_c,
 	&ft_print_s,
 	&ft_print_p,
@@ -23,12 +23,12 @@ void	(*g_specifiers[8])(t_format *, va_list *) = {
 	&ft_print_prc
 };
 
-t_uint64		ft_process(const char *s, va_list *va)
+t_uint64		ft_process(const char *s, va_list *va, t_int32 *ret)
 {
 	t_format	fmt;
 	t_uint64	size;
 
 	size = ft_parse(s, &fmt, va);
-	g_specifiers[fmt.specifier](&fmt, va);
+	g_specifiers[fmt.specifier](&fmt, va, ret);
 	return (size);
 }

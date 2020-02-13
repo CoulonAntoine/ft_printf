@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:41:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/13 12:45:08 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/13 15:54:31 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,13 @@
 # include "../libft/libft.h"
 # include <stdarg.h>
 
-#include <stdio.h>
-#include <string.h>
+# include <stdio.h>
+# include <string.h>
 
 # define FLAG_LEFT BIT_0
 # define FLAG_FILL_0 BIT_1
 # define FLAG_WIDTH BIT_2
 # define FLAG_PREC BIT_3
-
-# define FLAG_SET "-0.*"
-# define NBRS_SET "0123456789"
-# define SPEC_SET "cspdiuxX%"
 
 typedef enum	e_spec
 {
@@ -50,7 +46,7 @@ typedef struct	s_format
 
 int				ft_printf(const char *format, ...);
 
-t_uint64		ft_process(const char *s, va_list *va);
+t_uint64		ft_process(const char *s, va_list *va, t_int32 *ret);
 
 t_uint64		ft_parse(const char *s, t_format *fmt, va_list *va);
 
@@ -59,13 +55,13 @@ t_uint64		ft_parse_width(t_format *fmt, char *s, va_list *va);
 t_uint64		ft_parse_precision(t_format *fmt, char *s, va_list *va);
 t_uint64		ft_parse_specifier(t_format *fmt, char *s);
 
-void			ft_print_c(t_format *fmt, va_list *va);
-void			ft_print_s(t_format *fmt, va_list *va);
-void			ft_print_p(t_format *fmt, va_list *va);
-void			ft_print_d(t_format *fmt, va_list *va);
-void			ft_print_u(t_format *fmt, va_list *va);
-void			ft_print_x(t_format *fmt, va_list *va);
-void			ft_print_ux(t_format *fmt, va_list *va);
-void			ft_print_prc(t_format *fmt, va_list *va);
+void			ft_print_c(t_format *fmt, va_list *va, t_int32 *ret);
+void			ft_print_s(t_format *fmt, va_list *va, t_int32 *ret);
+void			ft_print_p(t_format *fmt, va_list *va, t_int32 *ret);
+void			ft_print_d(t_format *fmt, va_list *va, t_int32 *ret);
+void			ft_print_u(t_format *fmt, va_list *va, t_int32 *ret);
+void			ft_print_x(t_format *fmt, va_list *va, t_int32 *ret);
+void			ft_print_ux(t_format *fmt, va_list *va, t_int32 *ret);
+void			ft_print_prc(t_format *fmt, va_list *va, t_int32 *ret);
 
 #endif
