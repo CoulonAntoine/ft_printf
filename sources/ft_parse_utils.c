@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 13:02:27 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/11 12:25:56 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/13 11:45:01 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_uint64	ft_parsing_atoi(char *s, t_uint64 *nbr)
 	i = 0;
 	*nbr = 0;
 	while (s[i] && s[i] >= '0' && s[i] <= '9')
-		*nbr = (*nbr * 10) + s[i++] - '0';
+		*nbr = (*nbr * 10) + (s[i++] - '0');
 	return (i);
 }
 
@@ -27,12 +27,12 @@ t_uint64		ft_parse_flags(t_format *fmt, char *s)
 {
 	if (s[0] == '0')
 	{
-		fmt->flag += FLAG_FILL_0;
+		fmt->flag |= FLAG_FILL_0;
 		return (1);
 	}
 	if (s[0] == '-')
 	{
-		fmt->flag += FLAG_LEFT;
+		fmt->flag |= FLAG_LEFT;
 		return (1);
 	}
 	return (0);
@@ -45,7 +45,7 @@ t_uint64		ft_parse_width(t_format *fmt, char *s, va_list *va)
 
 	if (s[0] == '*')
 	{
-		fmt->flag += FLAG_WIDTH;
+		fmt->flag |= FLAG_WIDTH;
 		fmt->width = va_arg(*va, int);
 		return (1);
 	}
@@ -66,7 +66,7 @@ t_uint64		ft_parse_precision(t_format *fmt, char *s, va_list *va)
 
 	if (s[0] != '.')
 		return (0);
-	fmt->flag += FLAG_PREC;
+	fmt->flag |= FLAG_PREC;
 	if (s[1] == '*')
 	{
 		fmt->precision = va_arg(*va, int);
@@ -75,8 +75,8 @@ t_uint64		ft_parse_precision(t_format *fmt, char *s, va_list *va)
 	if ((i = ft_parsing_atoi(s + 1, &nbr)))
 	{
 		if (nbr)
-			fmt->flag += FLAG_PREC;
-		fmt->width = nbr;
+			fmt->flag |= FLAG_PREC;
+		fmt->precision = nbr;
 		return (i + 1);
 	}
 	return (0);

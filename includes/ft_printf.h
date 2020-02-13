@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:41:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/11 12:33:49 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/13 12:08:55 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,16 @@ typedef struct	s_format
 
 int				ft_printf(const char *format, ...);
 
-t_uint64		ft_parse(const char *s, va_list *va);
+t_uint64		ft_process(const char *s, va_list *va);
+
+t_uint64		ft_parse(const char *s, t_format *fmt, va_list *va);
 
 t_uint64		ft_parse_flags(t_format *fmt, char *s);
 t_uint64		ft_parse_width(t_format *fmt, char *s, va_list *va);
 t_uint64		ft_parse_precision(t_format *fmt, char *s, va_list *va);
 t_uint64		ft_parse_specifier(t_format *fmt, char *s);
+
+void			ft_redirect(t_format *fmt, va_list *va);
+
 
 #endif

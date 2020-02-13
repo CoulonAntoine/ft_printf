@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/04 11:41:35 by ancoulon          #+#    #+#              #
-#    Updated: 2020/02/11 16:50:34 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/02/13 12:05:43 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCDIR		= ./includes
 
 SRCDIR		= ./sources
 
-SRCS		= ft_parse_utils.c ft_parse.c ft_printf.c
+SRCS		= ft_printf.c ft_process.c ft_parse.c ft_parse_utils.c
 
 OBJS		= $(addprefix $(SRCDIR)/, $(SRCS:.c=.o))
 
@@ -28,7 +28,7 @@ CC			= gcc
 
 CFLAGS		= -Wall -Wextra -Werror
 
-AR			= ar rcs
+AR			= libtool -static -o
 
 RM			= rm -f
 

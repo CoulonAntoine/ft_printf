@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 10:28:58 by ancoulon          #+#    #+#              #
-#    Updated: 2020/02/11 14:23:06 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/02/13 11:05:15 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,33 +23,33 @@ SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c     \
 			  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c    \
 			  ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c          \
 			  ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c       \
-			  ft_lstmap.c ft_strndup.c ft_strlcat.c ft_strinc.c ft_isupper.c   \
-			  ft_islower.c ft_strcat.c ft_isset.c
+			  ft_lstmap.c ft_strndup.c ft_strinc.c ft_isupper.c ft_islower.c   \
+			  ft_strcat.c ft_isset.c
 
-OBJS		= ${SRCS:.c=.o}
+OBJS		= $(SRCS:.c=.o)
 
 CC			= gcc
 
-AR			= ar rc
+AR			= libtool -static -o
 
 RM			= rm -f
 
 CFLAGS		= -Wall -Wextra -Werror
 
 .c.o:
-			${CC} ${CFLAGS} -c $^ -o $@
+			$(CC) $(CFLAGS) -c $^ -o $@
 
-$(NAME):	${OBJS}
-			${AR} ${NAME} ${OBJS}
-			ranlib ${NAME}
+$(NAME):	$(OBJS)
+			$(AR) $(NAME) $(OBJS)
+			ranlib $(NAME)
 
-all:		${NAME}
+all:		$(NAME)
 
 clean:
-			${RM} ${OBJS}
+			$(RM) $(OBJS)
 
 fclean:		clean
-			${RM} ${NAME}
+			$(RM) $(NAME)
 
 re:			fclean all
 
