@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_process.c                                       :+:      :+:    :+:   */
+/*   ft_print_c.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/13 11:47:34 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/13 12:35:35 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/02/13 12:18:43 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/02/13 12:45:49 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	(*g_specifiers[8])(t_format *, va_list *) = {
-	&ft_print_c,
-	&ft_print_s,
-	&ft_print_p,
-	&ft_print_d,
-	&ft_print_u,
-	&ft_print_x,
-	&ft_print_ux,
-	&ft_print_prc
-};
-
-t_uint64		ft_process(const char *s, va_list *va)
+void		ft_print_c(t_format *fmt, va_list *va)
 {
-	t_format	fmt;
-	t_uint64	size;
+	char		arg;
+	t_uint64	i;
 
-	size = ft_parse(s, &fmt, va);
-	g_specifiers[fmt.specifier](&fmt, va);
-	return (size);
+	i = 0;
+	arg = (char)va_arg(*va, int);
+	if (fmt->flag & FLAG_WIDTH)
+	{
+		if (fmt->flag & FLAG_LEFT)
+			ft_putchar_fd(arg, 1);
+		while (i < (fmt->width - 1))
+		{
+			ft_putchar_fd(' ', 1);
+			i++;
+		}
+		if (!(fmt->flag & FLAG_LEFT))
+			ft_putchar_fd(arg, 1);
+	}
+	else
+		ft_putchar_fd(arg, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:41:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/13 12:08:55 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/13 12:45:08 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef enum	e_spec
 typedef struct	s_format
 {
 	t_uint8		flag;
-	t_int64		width;
-	t_int64		precision;
+	t_uint64	width;
+	t_uint64	precision;
 	t_spec		specifier;
 }				t_format;
 
@@ -59,7 +59,13 @@ t_uint64		ft_parse_width(t_format *fmt, char *s, va_list *va);
 t_uint64		ft_parse_precision(t_format *fmt, char *s, va_list *va);
 t_uint64		ft_parse_specifier(t_format *fmt, char *s);
 
-void			ft_redirect(t_format *fmt, va_list *va);
-
+void			ft_print_c(t_format *fmt, va_list *va);
+void			ft_print_s(t_format *fmt, va_list *va);
+void			ft_print_p(t_format *fmt, va_list *va);
+void			ft_print_d(t_format *fmt, va_list *va);
+void			ft_print_u(t_format *fmt, va_list *va);
+void			ft_print_x(t_format *fmt, va_list *va);
+void			ft_print_ux(t_format *fmt, va_list *va);
+void			ft_print_prc(t_format *fmt, va_list *va);
 
 #endif
