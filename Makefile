@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/04 11:41:35 by ancoulon          #+#    #+#              #
-#    Updated: 2020/02/25 10:25:21 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/02/25 13:43:42 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,23 +36,28 @@ RM			= rm -f
 
 MAKE		= make
 
+OUT_PREFIX	= \033[38;5;220mft_printf\033[38;5;253m : \033[0m
+
 .c.o:
-			$(CC) $(CFLAGS) -I$(INCDIR) -c $^ -o $@
+			@$(CC) $(CFLAGS) -I$(INCDIR) -c $^ -o $@
 
 $(NAME):	$(OBJS)
-			$(MAKE) -C $(LIBDIR)
-			$(AR) $(NAME) $(LIBDIR)/$(LIB) $(OBJS)
-			ranlib $(NAME)
+			@$(MAKE) -C $(LIBDIR)
+			@$(AR) $(NAME) $(LIBDIR)/$(LIB) $(OBJS)
+			@ranlib $(NAME)
+			@echo "${OUT_PREFIX}\033[38;5;46mLibrary compiled\033[0m"
 
 all:		$(NAME)
 
 clean:
-			$(MAKE) -C $(LIBDIR) clean
-			$(RM) $(OBJS)
+			@$(MAKE) -C $(LIBDIR) clean
+			@$(RM) $(OBJS)
+			@echo "${OUT_PREFIX}\033[38;5;46mObjects cleaned\033[0m"
 
 fclean:		clean
-			$(MAKE) -C $(LIBDIR) fclean
-			$(RM) $(NAME)
+			@$(MAKE) -C $(LIBDIR) fclean
+			@$(RM) $(NAME)
+			@echo "${OUT_PREFIX}\033[38;5;46mLibrary cleaned\033[0m"
 
 re:			fclean all
 

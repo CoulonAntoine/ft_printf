@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
+#    By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 10:28:58 by ancoulon          #+#    #+#              #
-#    Updated: 2020/02/13 11:05:15 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/02/25 13:42:22 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,20 +36,25 @@ RM			= rm -f
 
 CFLAGS		= -Wall -Wextra -Werror
 
+OUT_PREFIX	= \033[38;5;140mlibft\033[38;5;253m : \033[0m
+
 .c.o:
-			$(CC) $(CFLAGS) -c $^ -o $@
+			@$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NAME):	$(OBJS)
-			$(AR) $(NAME) $(OBJS)
-			ranlib $(NAME)
+			@$(AR) $(NAME) $(OBJS)
+			@ranlib $(NAME)
+			@echo "${OUT_PREFIX}\033[38;5;46mlibrary compiled\033[0m"
 
 all:		$(NAME)
 
 clean:
-			$(RM) $(OBJS)
+			@$(RM) $(OBJS)
+			@echo "${OUT_PREFIX}\033[38;5;46mObjects cleaned\033[0m"
 
 fclean:		clean
-			$(RM) $(NAME)
+			@$(RM) $(NAME)
+			@echo "${OUT_PREFIX}\033[38;5;46mLibrary cleaned\033[0m"
 
 re:			fclean all
 

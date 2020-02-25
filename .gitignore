@@ -1,1 +1,6 @@
 pft/
+a.out
+libftprintf.a
+sources/*.o
+libft/*.o
+libft/libft.a
