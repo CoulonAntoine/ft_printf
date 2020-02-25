@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 13:02:27 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/13 11:45:01 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/25 12:53:56 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,12 @@ t_uint64		ft_parse_precision(t_format *fmt, char *s, va_list *va)
 			fmt->flag |= FLAG_PREC;
 		fmt->precision = nbr;
 		return (i + 1);
+	}
+	else
+	{
+		fmt->flag |= FLAG_PREC;
+		fmt->precision = 0;
+		return (1);
 	}
 	return (0);
 }

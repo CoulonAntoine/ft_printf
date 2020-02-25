@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 12:18:43 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/25 12:25:32 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/25 12:49:44 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		ft_putnstr(char *arg, t_format *fmt)
 	{
 		i = 0;
 		prec = fmt->precision;
-		while (i < prec)
+		while (arg[i] && i < prec)
 		{
 			ft_putchar_fd(arg[i], 1);
 			i++;
