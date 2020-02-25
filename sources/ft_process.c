@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_process.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 11:47:34 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/13 15:45:34 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/25 12:19:22 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	(*g_specifiers[8])(t_format *, va_list *, t_int32 *) = {
 	&ft_print_u,
 	&ft_print_x,
 	&ft_print_ux,
-	&ft_print_prc
+	&ft_print_pct
 };
 
 t_uint64		ft_process(const char *s, va_list *va, t_int32 *ret)

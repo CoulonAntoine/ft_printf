@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 12:28:42 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/13 17:19:44 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/25 12:26:49 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#define INPUT "%s", "heyhey"
+#define INPUT "%.7s", "hello"
 
 int		main(void)
 {

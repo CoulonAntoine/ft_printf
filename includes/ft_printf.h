@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:41:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/13 15:54:31 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/25 10:25:33 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ void			ft_print_d(t_format *fmt, va_list *va, t_int32 *ret);
 void			ft_print_u(t_format *fmt, va_list *va, t_int32 *ret);
 void			ft_print_x(t_format *fmt, va_list *va, t_int32 *ret);
 void			ft_print_ux(t_format *fmt, va_list *va, t_int32 *ret);
-void			ft_print_prc(t_format *fmt, va_list *va, t_int32 *ret);
+void			ft_print_pct(t_format *fmt, va_list *va, t_int32 *ret);
 
 #endif
