@@ -6,19 +6,18 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 12:28:42 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/25 14:34:29 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:32:00 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#define INPUT "%010d", -14345342
+#define INPUT "%.1d", 0
 
 int		main(void)
 {
 	int	ft = 0;
 	int	pf = 0;
-	
 	ft = ft_printf(INPUT);
 	ft_putchar_fd('\n', 1);
 	pf = printf(INPUT); 
