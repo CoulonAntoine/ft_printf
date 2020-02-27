@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/04 11:41:35 by ancoulon          #+#    #+#              #
-#    Updated: 2020/02/25 13:43:42 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/02/27 13:11:26 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCDIR		= ./sources
 
 SRCS		= ft_printf.c ft_process.c ft_parse.c ft_parse_utils.c            \
 			  ft_print_c.c ft_print_s.c ft_print_p.c ft_print_d.c             \
-			  ft_print_u.c ft_print_x.c ft_print_ux.c ft_print_pct.c
+			  ft_print_u.c ft_print_x.c ft_print_ux.c ft_print_pct.c          \
+			  ft_print_d_utils.c
 
 OBJS		= $(addprefix $(SRCDIR)/, $(SRCS:.c=.o))
 

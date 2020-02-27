@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:41:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/25 10:25:33 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/27 13:50:48 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,9 @@ void			ft_print_u(t_format *fmt, va_list *va, t_int32 *ret);
 void			ft_print_x(t_format *fmt, va_list *va, t_int32 *ret);
 void			ft_print_ux(t_format *fmt, va_list *va, t_int32 *ret);
 void			ft_print_pct(t_format *fmt, va_list *va, t_int32 *ret);
+
+t_int32			ft_dsize(t_format *fmt, t_int64 nbr, t_int16 sign);
+void			ft_printnbr(t_format *fmt, t_int64 nbr, t_int32 sign);
+void			ft_printpad(t_format *fmt, t_int32 pad, t_int32 *ret);
 
 #endif
