@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 12:28:42 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/27 13:58:45 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/27 14:24:26 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#define INPUT "%u", 4294967295u
+#define INPUT "%x", 4294967295u
 
 int		main(void)
 {

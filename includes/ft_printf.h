@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:41:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/27 13:50:48 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/27 14:29:36 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 # define FLAG_FILL_0 BIT_1
 # define FLAG_WIDTH BIT_2
 # define FLAG_PREC BIT_3
+
+# define HEX_BASE "0123456789abcdef"
+# define UHEX_BASE "0123456789ABCDEF"
 
 typedef enum	e_spec
 {
@@ -67,5 +70,8 @@ void			ft_print_pct(t_format *fmt, va_list *va, t_int32 *ret);
 t_int32			ft_dsize(t_format *fmt, t_int64 nbr, t_int16 sign);
 void			ft_printnbr(t_format *fmt, t_int64 nbr, t_int32 sign);
 void			ft_printpad(t_format *fmt, t_int32 pad, t_int32 *ret);
+t_int32			ft_hexsize(t_format *fmt, t_int64 nbr);
+void			ft_printhexnbr(t_format *fmt, t_int64 nbr, char *base);
+
 
 #endif
