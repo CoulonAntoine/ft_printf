@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 13:02:27 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/28 13:38:29 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/28 14:53:58 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_uint64	ft_parsing_atoi(char *s, t_uint64 *nbr)
 
 	i = 0;
 	*nbr = 0;
-	while (s[i] && s[i] >= '0' && s[i] <= '9')
+	while (s && s[i] && s[i] >= '0' && s[i] <= '9')
 		*nbr = (*nbr * 10) + (s[i++] - '0');
 	return (i);
 }
@@ -28,12 +28,12 @@ t_uint64		ft_parse_flags(t_format *fmt, char *s)
 	t_uint64	i;
 
 	i = 0;
-	while (s[i] == '0')
+	while (s[i] && s[i] == '0')
 	{
 		fmt->flag |= FLAG_FILL_0;
 		i++;
 	}
-	while (s[i] == '-')
+	while (s[i] && s[i] == '-')
 	{
 		fmt->flag |= FLAG_LEFT;
 		i++;
@@ -77,7 +77,7 @@ t_uint64		ft_parse_precision(t_format *fmt, char *s, va_list *va)
 		fmt->precision = (star >= 0) ? star : 0;
 		return (2);
 	}
-	if ((i = ft_parsing_atoi(s + 1, &nbr)))
+	if (s && s[0] && (i = ft_parsing_atoi(s + 1, &nbr)))
 	{
 		if (nbr)
 			fmt->flag |= FLAG_PREC;
