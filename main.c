@@ -6,14 +6,13 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 12:28:42 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/27 14:24:26 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/28 14:00:28 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#define INPUT "%x", 4294967295u
-
+#define INPUT "%143.100s%--84.115d" ,"lGXCT](j\fWb-[MQ",108259199
 int		main(void)
 {
 	int	ft = 0;

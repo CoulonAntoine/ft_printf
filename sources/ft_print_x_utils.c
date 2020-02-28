@@ -6,25 +6,27 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:03:47 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/27 14:28:13 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/28 11:10:23 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static t_int32	ft_hexnbrsize(t_int64 nbr)
+t_int32			ft_hexnbrsize(t_int64 nbr)
 {
 	t_int32		count;
 
+	if (nbr == 0)
+		return (1);
 	count = 0;
 	if (nbr < 0)
 		nbr *= -1;
-	while (nbr > 16)
+	while (nbr > 0)
 	{
 		nbr /= 16;
 		count++;
 	}
-	return (count + 1);
+	return (count);
 }
 
 t_int32			ft_hexsize(t_format *fmt, t_int64 nbr)
@@ -55,8 +57,11 @@ void			ft_printhexnbr(t_format *fmt, t_int64 nbr, char *base)
 		i++;
 	}
 	if (!nbr && fmt->precision == 0 && fmt->width)
-		ft_putchar_fd(' ', 1);
-	else if (!nbr && fmt->precision == 0 && !fmt->width)
+	{
+	 	ft_putchar_fd(' ', 1);
+		return ;
+	}
+	if (!nbr && fmt->precision == 0 && !fmt->width)
 		return ;
 	else
 		ft_putnbr_base(nbr, base);

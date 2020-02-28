@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 13:02:27 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/25 12:53:56 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/28 13:38:29 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,20 @@ static t_uint64	ft_parsing_atoi(char *s, t_uint64 *nbr)
 
 t_uint64		ft_parse_flags(t_format *fmt, char *s)
 {
-	if (s[0] == '0')
+	t_uint64	i;
+
+	i = 0;
+	while (s[i] == '0')
 	{
 		fmt->flag |= FLAG_FILL_0;
-		return (1);
+		i++;
 	}
-	if (s[0] == '-')
+	while (s[i] == '-')
 	{
 		fmt->flag |= FLAG_LEFT;
-		return (1);
+		i++;
 	}
-	return (0);
+	return (i);
 }
 
 t_uint64		ft_parse_width(t_format *fmt, char *s, va_list *va)
@@ -63,13 +66,15 @@ t_uint64		ft_parse_precision(t_format *fmt, char *s, va_list *va)
 {
 	t_uint64	nbr;
 	t_uint64	i;
+	t_int32		star;
 
 	if (s[0] != '.')
 		return (0);
 	fmt->flag |= FLAG_PREC;
 	if (s[1] == '*')
 	{
-		fmt->precision = va_arg(*va, int);
+		star = va_arg(*va, int);
+		fmt->precision = (star >= 0) ? star : 0;
 		return (2);
 	}
 	if ((i = ft_parsing_atoi(s + 1, &nbr)))
@@ -106,5 +111,7 @@ t_uint64		ft_parse_specifier(t_format *fmt, char *s)
 		fmt->specifier = CHEX;
 	else if (s[0] == '%')
 		fmt->specifier = PERCENT;
+	else
+		fmt->specifier = CHAR;
 	return (1);
 }

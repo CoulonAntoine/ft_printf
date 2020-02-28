@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:41:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/27 14:29:36 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/27 15:42:22 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ t_int32			ft_dsize(t_format *fmt, t_int64 nbr, t_int16 sign);
 void			ft_printnbr(t_format *fmt, t_int64 nbr, t_int32 sign);
 void			ft_printpad(t_format *fmt, t_int32 pad, t_int32 *ret);
 t_int32			ft_hexsize(t_format *fmt, t_int64 nbr);
+t_int32			ft_hexnbrsize(t_int64 nbr);
 void			ft_printhexnbr(t_format *fmt, t_int64 nbr, char *base);
 
 

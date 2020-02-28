@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 12:18:43 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/27 14:03:15 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/02/28 13:58:51 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void			ft_print_d(t_format *fmt, va_list *va, t_int32 *ret)
 	t_int32		pad;
 
 	arg = (t_int64)va_arg(*va, int);
+	if ((!(fmt->flag & FLAG_PREC) ||
+	!fmt->precision) && fmt->flag & FLAG_PREC && fmt->width && arg)
+	{
+		fmt->precision = fmt->width;
+		fmt->precision -= (arg < 0) ? 1 : 0;
+		fmt->width = 0;
+	}
 	sign = (arg >= 0) ? 0 : 1;
 	arg *= (arg >= 0) ? 1 : -1;
 	*ret += ft_dsize(fmt, arg, sign);
@@ -31,11 +38,15 @@ void			ft_print_d(t_format *fmt, va_list *va, t_int32 *ret)
 	}
 	if (!(fmt->flag & FLAG_WIDTH))
 		return (ft_printnbr(fmt, arg, sign));
-	pad = (t_int32)fmt->width - (t_int32)ft_dsize(fmt, arg, sign);
-	pad = (pad >= 0) ? pad : 0;
+	if (fmt->flag & FLAG_WIDTH)
+	{
+		pad = (t_int32)fmt->width - (t_int32)ft_dsize(fmt, arg, sign);
+		pad = (pad >= 0) ? pad : 0;
+	}
 	if (fmt->flag & FLAG_LEFT)
 		ft_printnbr(fmt, arg, sign);
-	ft_printpad(fmt, pad, ret);
+	if (fmt->flag & FLAG_WIDTH)
+		ft_printpad(fmt, pad, ret);
 	if (!(fmt->flag & FLAG_LEFT))
 		ft_printnbr(fmt, arg, sign);
 }
