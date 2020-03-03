@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:54:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/13 15:40:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/03 13:32:35 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int			ft_printf(const char *format, ...)
 		i++;
 	}
 	va_end(va);
-	return ((int)ret);
+	return (i);
 }
