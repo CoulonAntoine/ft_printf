@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 13:02:27 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/28 14:53:58 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/04 13:58:40 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,23 +74,18 @@ t_uint64		ft_parse_precision(t_format *fmt, char *s, va_list *va)
 	if (s[1] == '*')
 	{
 		star = va_arg(*va, int);
-		fmt->precision = (star >= 0) ? star : 0;
 		return (2);
 	}
 	if (s && s[0] && (i = ft_parsing_atoi(s + 1, &nbr)))
 	{
-		if (nbr)
-			fmt->flag |= FLAG_PREC;
 		fmt->precision = nbr;
 		return (i + 1);
 	}
 	else
 	{
-		fmt->flag |= FLAG_PREC;
 		fmt->precision = 0;
 		return (1);
 	}
-	return (0);
 }
 
 t_uint64		ft_parse_specifier(t_format *fmt, char *s)
@@ -112,6 +107,6 @@ t_uint64		ft_parse_specifier(t_format *fmt, char *s)
 	else if (s[0] == '%')
 		fmt->specifier = PERCENT;
 	else
-		fmt->specifier = CHAR;
+		fmt->specifier = PERCENT;
 	return (1);
 }

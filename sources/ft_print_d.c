@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 12:18:43 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/28 13:58:51 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/03 15:51:07 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ void			ft_print_d(t_format *fmt, va_list *va, t_int32 *ret)
 		pad = (t_int32)fmt->width - (t_int32)ft_dsize(fmt, arg, sign);
 		pad = (pad >= 0) ? pad : 0;
 	}
-	if (fmt->flag & FLAG_LEFT)
-		ft_printnbr(fmt, arg, sign);
-	if (fmt->flag & FLAG_WIDTH)
-		ft_printpad(fmt, pad, ret);
-	if (!(fmt->flag & FLAG_LEFT))
-		ft_printnbr(fmt, arg, sign);
+	(fmt->flag & FLAG_LEFT) ? ft_printnbr(fmt, arg, sign) : (void)0;
+	(fmt->flag & FLAG_WIDTH) ? ft_printpad(fmt, pad, ret) : (void)0;
+	(!(fmt->flag & FLAG_LEFT)) ? ft_printnbr(fmt, arg, sign) : (void)0;
 }

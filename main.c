@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 12:28:42 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/03 13:50:29 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/04 17:17:04 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#define INPUT "%.0d", 0
+#define INPUT "%c", 'h'
 int		main(void)
 {
 	int	ft = 0;

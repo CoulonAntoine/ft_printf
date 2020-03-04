@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:41:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/27 15:42:22 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/04 17:16:22 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ typedef enum	e_spec
 typedef struct	s_format
 {
 	t_uint8		flag;
-	t_uint64	width;
-	t_uint64	precision;
+	t_int64		width;
+	t_int64		precision;
 	t_spec		specifier;
 }				t_format;
 
@@ -69,10 +69,13 @@ void			ft_print_pct(t_format *fmt, va_list *va, t_int32 *ret);
 
 t_int32			ft_dsize(t_format *fmt, t_int64 nbr, t_int16 sign);
 void			ft_printnbr(t_format *fmt, t_int64 nbr, t_int32 sign);
-void			ft_printpad(t_format *fmt, t_int32 pad, t_int32 *ret);
 t_int32			ft_hexsize(t_format *fmt, t_int64 nbr);
 t_int32			ft_hexnbrsize(t_int64 nbr);
 void			ft_printhexnbr(t_format *fmt, t_int64 nbr, char *base);
 
+void			ft_putchar_pf(char c, t_int32 *ret);
+void			ft_printpad(t_int32 zero, t_int32 size, t_int32 *ret);
+void			ft_putstr_pf(t_format *fmt, char *str, t_int32 *ret);
+void			ft_putnbr_pf(t_format *fmt, t_int64 nbr);
 
 #endif
