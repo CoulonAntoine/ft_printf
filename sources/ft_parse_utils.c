@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 13:02:27 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/04 13:58:40 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/05 09:28:14 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,13 @@ t_uint64		ft_parse_precision(t_format *fmt, char *s, va_list *va)
 {
 	t_uint64	nbr;
 	t_uint64	i;
-	t_int32		star;
 
 	if (s[0] != '.')
 		return (0);
 	fmt->flag |= FLAG_PREC;
 	if (s[1] == '*')
 	{
-		star = va_arg(*va, int);
+		fmt->precision = va_arg(*va, int);
 		return (2);
 	}
 	if (s && s[0] && (i = ft_parsing_atoi(s + 1, &nbr)))

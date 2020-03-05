@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:41:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/04 17:16:22 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/05 09:45:32 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define FLAG_WIDTH BIT_2
 # define FLAG_PREC BIT_3
 
+# define DEC_BASE "0123456789"
 # define HEX_BASE "0123456789abcdef"
 # define UHEX_BASE "0123456789ABCDEF"
 
@@ -67,15 +68,11 @@ void			ft_print_x(t_format *fmt, va_list *va, t_int32 *ret);
 void			ft_print_ux(t_format *fmt, va_list *va, t_int32 *ret);
 void			ft_print_pct(t_format *fmt, va_list *va, t_int32 *ret);
 
-t_int32			ft_dsize(t_format *fmt, t_int64 nbr, t_int16 sign);
-void			ft_printnbr(t_format *fmt, t_int64 nbr, t_int32 sign);
-t_int32			ft_hexsize(t_format *fmt, t_int64 nbr);
-t_int32			ft_hexnbrsize(t_int64 nbr);
-void			ft_printhexnbr(t_format *fmt, t_int64 nbr, char *base);
-
 void			ft_putchar_pf(char c, t_int32 *ret);
 void			ft_printpad(t_int32 zero, t_int32 size, t_int32 *ret);
 void			ft_putstr_pf(t_format *fmt, char *str, t_int32 *ret);
-void			ft_putnbr_pf(t_format *fmt, t_int64 nbr);
+
+t_int32			ft_nbrsize(t_int64 nbr, char *b);
+void			ft_putnbr_pf(t_format *f, t_int64 n, char *b, t_int32 *r);
 
 #endif

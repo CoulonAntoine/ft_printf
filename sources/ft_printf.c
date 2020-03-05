@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:54:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/04 17:21:06 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/05 07:31:09 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ int			ft_printf(const char *format, ...)
 		if (format[i] == '%')
 			i += ft_process(format + i + 1, &va, &ret);
 		else
-		{
 			ft_putchar_pf(format[i], &ret);
-		}
 		i++;
 	}
 	va_end(va);
-	return (i);
+	return (ret);
 }
