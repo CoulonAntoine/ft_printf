@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 13:03:36 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/05 11:49:28 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/05 16:53:31 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static t_int32	ft_precsize(t_format *fmt, t_int64 nbr, char *b)
 	t_int32		zero;
 
 	zero = nbr ? 0 : 1;
-	return ((ft_nbrsize(nbr, b) < fmt->precision ?fmt->precision :
+	return ((ft_nbrsize(nbr, b) < fmt->precision ? fmt->precision :
 	ft_nbrsize(nbr, b)) - ft_nbrsize(nbr, b) + zero);
 }
 
@@ -53,7 +53,7 @@ static void		ft_printnbr_base(t_int64 nbr, char *b, t_int32 *ret)
 t_int32			ft_nbrlen(t_format *fmt, t_int64 nbr, char *b)
 {
 	t_int32		nbrsize;
-	
+
 	if (fmt->flag & FLAG_PREC)
 	{
 		if (fmt->precision < 0)
