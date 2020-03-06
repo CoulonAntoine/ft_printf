@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:06:43 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/27 14:42:58 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/06 13:04:24 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned long	ft_is_base(char *base)
+static t_uint64	ft_is_base(char *base)
 {
 	int			i;
 	int			j;
@@ -37,7 +37,7 @@ static unsigned long	ft_is_base(char *base)
 		return (1);
 }
 
-static void				ft_print_base(unsigned long nbr, char *base, unsigned long size)
+static void		ft_print_base(unsigned long nbr, char *base, unsigned long size)
 {
 	if (nbr < size)
 	{
@@ -50,7 +50,7 @@ static void				ft_print_base(unsigned long nbr, char *base, unsigned long size)
 	}
 }
 
-void					ft_putnbr_base(unsigned long nbr, char *base)
+void			ft_putnbr_base(unsigned long nbr, char *base)
 {
 	unsigned long	size;
 	unsigned long	nbr2;

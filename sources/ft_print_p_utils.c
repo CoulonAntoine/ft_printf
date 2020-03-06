@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 10:13:50 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/06 11:04:12 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/06 13:05:33 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_int32	ft_psize(t_uint64 nbr, char *b)
+t_int32			ft_psize(t_uint64 nbr, char *b)
 {
 	t_int32		count;
 

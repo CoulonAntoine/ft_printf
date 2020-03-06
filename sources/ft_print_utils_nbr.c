@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 13:03:36 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/06 11:19:48 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/06 13:05:45 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_int32	ft_nbrsize(t_int64 nbr, char *b)
+t_int32			ft_nbrsize(t_int64 nbr, char *b)
 {
 	t_int32		count;
 
