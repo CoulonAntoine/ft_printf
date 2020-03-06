@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 13:02:27 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/05 09:28:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/06 11:44:10 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,13 @@ t_uint64		ft_parse_width(t_format *fmt, char *s, va_list *va)
 	{
 		fmt->flag |= FLAG_WIDTH;
 		fmt->width = va_arg(*va, int);
+		if (fmt->width < 0)
+		{
+			fmt->width *= -1;
+			fmt->flag |= FLAG_LEFT;
+			if (fmt->flag & FLAG_FILL_0)
+				fmt->flag &= ~FLAG_FILL_0;
+		}
 		return (1);
 	}
 	if ((i = ft_parsing_atoi(s, &nbr)))

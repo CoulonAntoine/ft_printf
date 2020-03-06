@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:41:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/05 10:16:32 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/06 10:21:16 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,9 @@ void			ft_putstr_pf(t_format *fmt, char *str, t_int32 *ret);
 t_int32			ft_nbrsize(t_int64 nbr, char *b);
 void			ft_putnbr_pf(t_format *f, t_int64 n, char *b, t_int32 *r);
 t_int32			ft_nbrlen(t_format *fmt, t_int64 nbr, char *b);
+
+t_int32			ft_psize(t_uint64 nbr, char *b);
+void			ft_putp_pf(t_format *f, t_uint64 n, char *b, t_int32 *r);
+t_int32			ft_plen(t_format *fmt, t_uint64 nbr, char *b);
 
 #endif

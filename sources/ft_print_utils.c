@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 16:39:13 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/05 08:05:13 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/06 12:20:35 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void			ft_putstr_pf(t_format *fmt, char *str, t_int32 *ret)
 
 	if (!fmt)
 		return ;
-	if (fmt->flag & FLAG_PREC)
+	if (fmt->flag & FLAG_PREC && fmt->precision >= 0)
 	{
 		i = 0;
 		while (str[i] && i < fmt->precision)

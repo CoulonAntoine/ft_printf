@@ -6,41 +6,41 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 12:18:43 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/05 08:53:45 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/06 12:14:19 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static void	ft_putpref(t_int32 *ret)
+{
+	ft_putchar_pf('0', ret);
+	ft_putchar_pf('x', ret);
+}
+
 void		ft_print_p(t_format *fmt, va_list *va, t_int32 *ret)
 {
-	(void)fmt;
-	(void)va;
-	(void)ret;
-	// t_uint64	arg;
-	// t_int64		pad;
+	t_uint64		arg;
 
-	// arg = (t_uint64)va_arg(*va, void *);
-	// if (fmt->flag & FLAG_WIDTH)
-	// {
-	// 	pad = fmt->width - ft_hexnbrsize(arg) - 2;
-	// 	pad = (pad >= 0) ? pad : 0;
-	// 	pad += (fmt->flag & FLAG_PREC && !arg) ? 1 : 0;
-	// 	*ret -= (fmt->flag & FLAG_PREC && !arg) ? 1 : 0;
-	// }
-	// *ret += ft_hexnbrsize(arg) + 2;
-	// if (fmt->flag & FLAG_LEFT)
-	// {
-	// 	ft_putstr_fd("0x", 1);
-	// 	if (!(fmt->flag & FLAG_PREC && arg == 0))
-	// 		ft_putnbr_base((unsigned long)arg, HEX_BASE);
-	// }
-	// if (fmt->flag & FLAG_WIDTH)
-	// 	ft_printpad(fmt, pad, ret);
-	// if (!(fmt->flag & FLAG_LEFT))
-	// {
-	// 	ft_putstr_fd("0x", 1);
-	// 	if (!(fmt->flag & FLAG_PREC && arg == 0))
-	// 		ft_putnbr_base((unsigned long)arg, HEX_BASE);
-	// }
+	arg = (unsigned long)va_arg(*va, void *);
+	if (fmt->flag & FLAG_WIDTH)
+	{
+		if (fmt->flag & FLAG_LEFT)
+		{
+			ft_putpref(ret);
+			ft_putp_pf(fmt, arg, HEX_BASE, ret);
+		}
+		ft_printpad((fmt->flag & FLAG_PREC) ? 0 : fmt->flag & FLAG_FILL_0,
+		fmt->width - ft_plen(fmt, arg, HEX_BASE) - 2, ret);
+		if (!(fmt->flag & FLAG_LEFT))
+		{
+			ft_putpref(ret);
+			ft_putp_pf(fmt, arg, HEX_BASE, ret);
+		}
+	}
+	else
+	{
+		ft_putpref(ret);
+		ft_putp_pf(fmt, arg, HEX_BASE, ret);
+	}
 }
